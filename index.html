@@ -1,0 +1,54 @@
+<div id="meuCard" class="card shadow-sm">
+  <img
+    id="cardImagem"
+    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+    class="card-img-top"
+    alt="Equipe trabalhando em projeto de tecnologia"
+  />
+  <div class="card-body">
+    <h5 id="cardTitulo" class="card-title">StudyPulse AI</h5>
+    <p id="cardTexto" class="card-text">
+      Protótipo de startup: resumos inteligentes e planos de estudo personalizados para acelerar seu aprendizado.
+    </p>
+    <button id="btnAlterarCard" type="button" class="btn btn-primary w-100">
+      Ativar Modo Destaque
+    </button>
+  </div>
+</div>
+
+<script>
+  const card = document.getElementById("meuCard");
+  const titulo = document.getElementById("cardTitulo");
+  const texto = document.getElementById("cardTexto");
+  const botao = document.getElementById("btnAlterarCard");
+
+  let destaqueAtivo = false;
+
+  botao.addEventListener("click", () => {
+    destaqueAtivo = !destaqueAtivo;
+
+    if (destaqueAtivo) {
+      card.classList.remove("shadow-sm");
+      card.classList.add("bg-success", "text-white", "border-0", "shadow-lg");
+
+      titulo.textContent = "StudyPulse AI — Plano Pro Ativado";
+      texto.textContent =
+        "Flashcards automáticos, simulados rápidos e acompanhamento de metas prontos para o seu ritmo.";
+
+      botao.textContent = "Voltar ao Modo Padrão";
+      botao.classList.remove("btn-primary");
+      botao.classList.add("btn-light");
+    } else {
+      card.classList.remove("bg-success", "text-white", "border-0", "shadow-lg");
+      card.classList.add("shadow-sm");
+
+      titulo.textContent = "StudyPulse AI";
+      texto.textContent =
+        "Protótipo de startup: resumos inteligentes e planos de estudo personalizados para acelerar seu aprendizado.";
+
+      botao.textContent = "Ativar Modo Destaque";
+      botao.classList.remove("btn-light");
+      botao.classList.add("btn-primary");
+    }
+  });
+</script>
